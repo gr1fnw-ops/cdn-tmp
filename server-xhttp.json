@@ -1,0 +1,53 @@
+{
+ "log": {
+  "loglevel": "warning"
+ },
+ "inbounds": [
+  {
+   "listen": "0.0.0.0",
+   "port": 2053,
+   "protocol": "vless",
+   "settings": {
+    "clients": [
+     {
+      "id": "37de4c21-b374-4476-81de-a469370a4614",
+      "level": 0
+     }
+    ],
+    "decryption": "none"
+   },
+   "streamSettings": {
+    "network": "xhttp",
+    "security": "tls",
+    "tlsSettings": {
+     "certificates": [
+      {
+       "certificateFile": "/usr/local/etc/xray/certs/origin.pem",
+       "keyFile": "/usr/local/etc/xray/certs/origin.key"
+      }
+     ]
+    },
+    "xhttpSettings": {
+     "path": "/vq8ejp0rvhfkjcl2"
+    }
+   },
+   "sniffing": {
+    "enabled": true,
+    "destOverride": [
+     "http",
+     "tls"
+    ]
+   }
+  }
+ ],
+ "outbounds": [
+  {
+   "protocol": "freedom",
+   "tag": "direct"
+  },
+  {
+   "protocol": "blackhole",
+   "tag": "block"
+  }
+ ]
+}
